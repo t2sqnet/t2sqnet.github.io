@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>T2SQNet</title>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="./static/images/favicon.svg">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+</head>
+
+<body>
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          
+          <!-- Title. -->
+          <h1 class="title is-2 publication-title">T<sup>2</sup>SQNet: A Recognition Model for Manipulating Partially Observed Transparent Tableware Objects</h1>
+          <p class="subtitle">Conference on Robot Learning (CoRL) 2024</p>
+          
+          <!-- Authors. -->
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              Young Hun Kim<sup>*, 1</sup>,</span>
+            <span class="author-block">
+              <a href="https://seungyeon-k.github.io">Seungyeon Kim</a><sup>*, 1</sup>,</span>
+            <span class="author-block">
+              <a href="https://www.gabe-yhlee.com">Yonghyeon Lee</a><sup>2</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://sites.google.com/robotics.snu.ac.kr/fcp/">Frank C. Park</a><sup>1</sup>,
+            </span>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><sup>1</sup>Seoul National University,</span>
+            <span class="author-block"><sup>2</sup>Korea Institute For Advanced Study</span>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><sup>*</sup>Equal contribution</span>
+          </div>
+
+          <!-- Icons. -->
+          <div class="column has-text-centered">
+            <div class="publication-links">
+
+              <!-- PDF Link. -->
+              <span class="link-block">
+                <a href="https://openreview.net/pdf?id=M0JtsLuhEE"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span>
+
+              <!-- Video Link. -->
+              <span class="link-block">
+                <a href="https://t2sqnet.github.io"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-youtube"></i>
+                  </span>
+                  <span>Video (Coming soon)</span>
+                </a>
+              </span>
+
+              <!-- Code Link. -->
+              <span class="link-block">
+                <a href="https://github.com/seungyeon-k/T2SQNet-public"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code (Coming soon)</span>
+                  </a>
+              </span>
+
+            </div>
+          </div>
+          
+          <!-- Blank. -->
+          <div class="columns is-centered">
+            <div class="content">
+              <h2 class="title is-3"></h2>
+            </div>            
+          </div>
+
+          <!-- TL;DR. -->
+          <div class="columns is-centered has-text-justified interpolation-panel">
+            <div class="column is-full-width">
+              <h2 class="title is-4">
+                <font color="#808080">
+                  <p></p><p></p><p></p>
+                  TL;DR: This paper proposes a novel framework for recognizing and manipulating partially observed 
+                  transparent tableware objects.
+                </font>
+              </h2>
+            </div>
+          </div>
+          
+          <!-- Blank. -->
+          <div class="columns is-centered">
+            <div class="content">
+              <h2 class="title is-3"></h2>
+            </div>            
+          </div>
+
+          <!-- Teaser Video. -->
+          <div class="columns is-centered">
+
+            <!-- Visual Effects. -->
+            <div class="column has-text-left">
+              <div class="content">
+                <h2 class="title is-3">Sequential Decluttering</h2>
+                <p>
+                  T<sup>2</sup>SQNet-based method succeeds in sequentially grasping the objects without re-recognition, 
+                  while avoiding collisions with other objects and the environment.
+                </p>
+                <!-- <video id="sd" autoplay controls muted loop playsinline height="100%"> -->
+                <video id="sd" autoplay controls muted playsinline height="100%">
+                  <source src="./assets/videos/sd.mp4"
+                          type="video/mp4">
+                </video>
+              </div>
+            </div>
+
+            <!-- Matting. -->
+            <div class="column has-text-left">
+              <h2 class="title is-3">Target Retrieval</h2>
+              <div class="columns is-centered">
+                <div class="column content">
+                  <p>
+                    T<sup>2</sup>SQNet-based method also successfully rearranges the surrounding objects and finally 
+                    retrieves an initially non-graspable target object (e.g., wineglass).
+                  </p>
+                  <!-- <video id="tr" autoplay controls muted loop playsinline height="100%"> -->
+                  <video id="sd" autoplay controls muted playsinline height="100%">
+                    <source src="./assets/videos/tr.mp4"
+                            type="video/mp4">
+                  </video>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            Recognizing and manipulating transparent tableware from partial view RGB image observations is made challenging 
+            by the difficulty in obtaining reliable depth measurements of transparent objects. In this paper we present the 
+            Transparent Tableware SuperQuadric Network (T<sup>2</sup>SQNet), a neural network model that leverages a family 
+            of newly extended deformable superquadrics to produce low-dimensional, instance-wise and accurate 3D geometric 
+            representations of transparent objects from partial views. As a byproduct and contribution of independent interest, 
+            we also present TablewareNet, a publicly available toolset of seven parametrized shapes based on our extended 
+            deformable superquadrics, that can be used to generate new datasets of tableware objects of diverse shapes and sizes. 
+            Experiments with T<sup>2</sup>SQNet trained with TablewareNet show that T<sup>2</sup>SQNet outperforms existing methods
+            in recognizing transparent objects, in some cases by significant margins, and can be effectively used in robotic 
+            applications like decluttering and target retrieval.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Paper video. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Video</h2>
+        <!-- <div class="publication-video">
+          <iframe src="https://www.youtube.com"
+                  frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+        </div> -->
+        <div class="content has-text-centered">
+          <p>
+            Coming soon
+          </p>
+        </div>        
+      </div>
+    </div>
+    <!--/ Paper video. -->
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+
+    <!-- Dataset. -->
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">Dataset</h2>
+
+        <!-- Extended Deformable Superquadrics. -->
+        <h3 class="title is-4">Extended Deformable Superquadrics</h3>
+        <div class="content has-text-justified">
+          <p>
+            <b>Superquadrics</b>, parametrized by only a few parameters, can represent a relatively wide range of geometric shapes. 
+            We employ two kinds of superquadrics: <b>superellipsoids</b>, which have been used for object manipulation, and 
+            <b>superparaboloids</b>, which are newly introduced. Superellipsoids and superparaboloids are implicit surfaces 
+            with the following implicit functions with size parameters \((a_1, a_2, a_3) \in \mathbb{R}_+^3\) and shape parameters 
+            \((e_1, e_2) \in \mathbb{R}_+^2\): for \(\textbf{x} = (x, y, z)\), 
+            $$
+            \begin{equation*}
+              \overbrace{f_{se}(\textbf{x})=\left(\left|\frac{x}{a_1}\right|^{\frac{2}{e_2}}
+              + \left|\frac{y}{a_2}\right|^{\frac{2}{e_2}}\right)^{\frac{e_2}{e_1}}
+              + \left|\frac{z}{a_3}\right|^{\frac{2}{e_1}} = 1 }^{\text{Superellipsoid}},
+              \:\:\:\:\:\:
+              \overbrace{f_{sp}(\textbf{x})=
+              \left(\left|\frac{x}{a_1}\right|^{\frac{2}{e_2}}
+              + \left|\frac{y}{a_2}\right|^{\frac{2}{e_2}}\right)^{\frac{e_2}{e_1}}
+              - \left(\frac{z}{a_3}\right) = 1}^{\text{Superparaboloid}}
+              \label{eq:sq}
+              \end{equation*}
+            $$
+            <b>Deformable superquadrics</b> extend superquadrics by incorporating global deformations, including tapering, bending,
+            and shearing transformations. By adjusting the parameters, various surfaces can be represented, as shown below. 
+          </p>
+        </div>
+        <div class="columns">
+          <div class="column has-text-centered">
+            <img src="./assets/images/edsq.png"
+                 alt="deformable superquadrics"/>
+          </div>
+        </div>
+
+        <!-- TablewareNet. -->
+        <h3 class="title is-4">TablewareNet: Dataset for Cluttered Transparent Tableware</h3>
+        <div class="content has-text-justified">
+          <p>
+              We combine deformable superquadrics to define templates representing seven types of tableware: <b>wine glasses, 
+              bottles, beer bottles, bowls, dishes, handleless cups</b>, and <b>mugs</b>. By adjusting parameters, we can generate 
+              diverse 3D tableware meshes. Spawning these meshes in a user-defined environment (e.g., table or shelf) within 
+              a physics simulator allows us to generate cluttered scenes. Using Blender, a photorealistic renderer, with transparent 
+              textures, we obtain RGB images of the scenes from arbitrary camera poses.
+          </p>
+        </div>
+        <div class="content has-text-centered">
+          <video id="tablewarenet" autoplay controls muted loop playsinline height="100%">
+          <!-- <video id="tablewarenet" controls muted preload playsinline width="75%"> -->
+            <source src="./assets/videos/tablewarenet.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+      </div>
+    </div>
+
+    <!-- TL;DR. -->
+    <div class="columns is-centered interpolation-panel">
+      <div class="column is-full-width">
+        <h2 class="title is-4 has-text-centered">Train Your Own Models with TablewareNet!</h2>
+        <div class="content">
+          For each scene in TablewareNet, we
+          provide mask images, depth images, and RGB images from seven different camera poses using the
+          synthetic camera parameters of the RealSense D435. Additionally, each scene includes 3D geometry
+          information including object poses, tableware parameters, class labels, bounding boxes, meshes,
+          and TSDF values. Currently, The dataset features two versions: one with transparent objects on a
+          shelf and another with on a table. Click the button below to download and use TablewareNet!
+        </div>
+        <div class="has-text-centered">
+          <a href="https://t2sqnet.github.io">
+            <button class="button is-primary">Download TablewareNet (Coming soon)</button>
+          </a>
+        </div>
+        <!-- <div class="content">
+          Additionally, 
+        </div> -->
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+
+    <!-- Recognition Model. -->
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">Recognition Model</h2>
+
+        <!-- T2SQNet. -->
+        <h3 class="title is-4">T<sup>2</sup>SQNet: Transparent Tableware SuperQuadric Network</h3>
+        <div class="content has-text-justified">
+          <p>
+            Overall, our method consists of four steps: (1) mask prediction in 2D images, (2) prediction of 3D bounding boxes, 
+            (3) computation of a <b>smoothed visual hull</b> through voxel carving, and (4) prediction of tableware parameters 
+            (i.e., a set of superquadric parameters). We apply these modules sequentially during inference, which can lead to 
+            the accumulation of prediction errors. To address this, we develop techniques to train each module accurately and 
+            robustly against noise and sim-to-real gaps.
+          </p>
+        </div>
+        <div class="content has-text-centered">
+          <video id="tablewarenet" autoplay controls muted loop playsinline height="100%">
+          <!-- <video id="tablewarenet" controls muted preload playsinline width="75%"> -->
+            <source src="./assets/videos/t2sqnet.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+
+        <!-- Recognition Results. -->
+        <h3 class="title is-4">Recognition Results</h3>
+        <div class="content has-text-justified">
+          <p>
+            The figure below shows the ground-truth shapes of the transparent TRansPose objects alongside the 
+            inferred implicit surfaces from T<sup>2</sup>SQNet. Although capturing surface details, such as the 
+            curvature of a water bottle, is challenging due to the nature of superquadric surfaces, we can confirm
+             that T<sup>2</sup>SQNet infers the overall shapes to a considerable extent.
+          </p>
+        </div>
+        <div class="columns">
+          <div class="column has-text-centered">
+            <img src="./assets/images/recognition.png"
+                 alt="recognition results"/>
+          </div>
+        </div>
+   
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+
+    <!-- Geometry-aware Object Manipulation. -->
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">Geometry-Aware Object Manipulation</h2>
+
+        <!-- Object Manipulation with T2SQNet. -->
+        <h3 class="title is-4">Object Manipulation with T<sup>2</sup>SQNet</h3>
+        <div class="content has-text-justified">
+          <p>
+            T<sup>2</sup>SQNet offers several practical advantages for downstream object manipulation tasks. 
+            For example, it allows for the easy design of an effective 6-DoF grasp sampler based on deformable 
+            superquadric representations, enables rapid collision checks through implicit function representations 
+            of deformable superquadric surfaces, and facilitates target-driven manipulation with instance-wise 
+            object recognition.
+          </p>
+        </div>
+        <div class="columns">
+          <div class="column has-text-centered">
+            <img src="./assets/images/manipulation.png"
+                 alt="manipulation"/>
+          </div>
+        </div>
+
+
+        <!-- Object Manipulation Results. -->
+        <h3 class="title is-4">Object Manipulation Results</h3>
+        <div class="content has-text-justified">
+          <p>
+            We demonstrate the effectiveness of our model, T<sup>2</sup>SQNet, on two object manipulation tasks: (i) 
+            <b>sequential decluttering</b>, which involves sequential grasping in a cluttered environment, and (ii) 
+            <b>target retrieval</b>, which involves object rearrangement planning to retrieve an initially non-graspable 
+            target object. The target object is indicated by a specific tableware class name (e.g., wineglass). Real-world 
+            manipulation videos can be found below.
+          </p>
+        </div>
+
+        <div class="publication-video">
+          <iframe src="https://www.youtube.com/embed/6m5ZOrbSxxI?rel=0&amp;showinfo=0"
+                  frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- Citation. -->
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title is-3">Citation</h2>
+    <pre><code>
+      @inproceedings{kim2024t2sqnet,
+      title={T$^2$SQNet: A Recognition Model for Manipulating Partially Observed Transparent Tableware Objects},
+      author={Kim, Young Hun and Kim, Seungyeon and Lee, Yonghyeon and Park, Frank C},
+      booktitle={8th Annual Conference on Robot Learning}
+    }
+    </code></pre>
+  </div>
+</section>
+
+<!-- Footer. -->
+<footer class="footer">
+  <div class="container">
+    <div class="content has-text-centered">
+      <p>
+        Website template modified from <a href="https://nerfies.github.io/">NeRFies</a>.
+      </p>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
